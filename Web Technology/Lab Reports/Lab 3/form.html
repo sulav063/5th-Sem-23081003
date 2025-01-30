@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <title>Registration Form</title>
+    <link rel="stylesheet" href="form.css">
+</head>
+<body>
+    <div class="form-container">
+        <form>
+            <h2>Full Name:</h2>
+            <input type="text" placeholder="Enter your Name" required>
+            
+            <h2>Email ID:</h2>
+            <input type="email" placeholder="Enter your Email" required>
+            
+            <h2>Password:</h2>
+            <input type="password" placeholder="Enter your Password" required>
+            
+            <h2>Gender:</h2>
+            <div class="gender">
+                <label><input type="radio" name="gender" value="Female"> Female</label>
+                <label><input type="radio" name="gender" value="Male"> Male</label>
+            </div>
+            
+            <h2>Click on your interests:</h2>
+            <div class="interests">
+                <label><input type="checkbox" name="interest" value="Coding"> Coding</label>
+                <label><input type="checkbox" name="interest" value="Singing"> Singing</label>
+                <label><input type="checkbox" name="interest" value="Football"> Football</label>
+                <label><input type="checkbox" name="interest" value="Dancing"> Dancing</label>
+                <label><input type="checkbox" name="interest" value="Basketball"> Basketball</label>
+            </div>
+            
+            <button type="submit">Register</button>
+        </form>
+    </div>
+</body>
+</html>

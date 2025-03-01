@@ -1,0 +1,39 @@
+<!--Write a JavaScript Program depicting the use of arrow function. Use this program to generate a
+Fibonacci series.-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fibonacci Series Generator</title>
+</head>
+<body>
+    <h1>Fibonacci Series Generator</h1>
+    <label for="count">Enter the number of terms:</label>
+    <input type="number" id="count" name="count">
+    <button onclick="generateFibonacci()">Generate</button>
+    <p id="result"></p>
+
+    <script>
+        const fibonacci = (num) => {
+            let fibSeries = [0, 1];
+            for (let i = 2; i < num; i++) {
+                fibSeries.push(fibSeries[i - 1] + fibSeries[i - 2]);
+            }
+            return fibSeries.slice(0, num);
+        };
+
+        const generateFibonacci = () => {
+            const count = parseInt(document.getElementById('count').value);
+            if (isNaN(count) || count <= 0) {
+                document.getElementById('result').innerText = 'Please enter a valid positive integer.';
+                console.log("Invalid input: Please enter a valid positive integer.");
+            } else {
+                const result = fibonacci(count);
+                document.getElementById('result').innerText = `Fibonacci series: ${result.join(', ')}`;
+                console.log("Fibonacci series:", result); // Display in console
+            }
+        };
+    </script>
+</body>
+</html>

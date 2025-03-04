@@ -1,46 +1,55 @@
-// C++ code to implement the
-// matrix chain multiplication using recursion
-#include <bits/stdc++.h>
+#include <iostream>
+#include <climits>
+
 using namespace std;
 
-// Matrix Ai has dimension arr[i-1] x arr[i]
-int minMultRec(vector<int> &arr, int i, int j)
+void MatrixChainMultiplication(int p[], int n)
 {
+    int m[n][n], s[n][n];
 
-    // If there is only one matrix
-    if (i + 1 == j)
-        return 0;
-
-    int res = INT_MAX;
-
-    // Place the first bracket at different
-    // positions or k and for every placed
-    // first bracket, recursively compute
-    // minimum cost for remaining brackets
-    // (or subproblems)
-    for (int k = i + 1; k < j; k++)
+    // Initialize the main diagonal to 0
+    for (int i = 1; i < n; i++)
     {
-        int curr = minMultRec(arr, i, k) +
-                   minMultRec(arr, k, j) + arr[i] * arr[k] * arr[j];
-
-        res = min(curr, res);
+        m[i][i] = 0;
     }
 
-    // Return minimum count
-    return res;
-}
+    // Compute the cost for chains of increasing length
+    for (int l = 2; l < n; l++)
+    {
+        for (int i = 1; i < n - l + 1; i++)
+        {
+            int j = i + l - 1;
+            m[i][j] = INT_MAX;
 
-int matrixMultiplication(vector<int> &arr)
-{
+            for (int k = i; k <= j - 1; k++)
+            {
+                int cost = m[i][k] + m[k + 1][j] + p[i - 1] * p[k] * p[j];
+                if (cost < m[i][j])
+                {
+                    m[i][j] = cost;
+                    s[i][j] = k;
+                }
+            }
+        }
+    }
 
-    int n = arr.size();
-    return minMultRec(arr, 0, n - 1);
+    cout << "Minimum number of multiplications: " << m[1][n - 1] << endl;
 }
 
 int main()
 {
+    int n;
+    cout << "Enter the number of matrices: ";
+    cin >> n;
 
-    vector<int> arr = {1, 2, 3, 4, 3};
-    cout << matrixMultiplication(arr);
+    int p[n + 1]; // Array to store matrix dimensions
+
+    cout << "Enter the dimensions: ";
+    for (int i = 0; i <= n; i++)
+    {
+        cin >> p[i];
+    }
+
+    MatrixChainMultiplication(p, n + 1);
     return 0;
 }

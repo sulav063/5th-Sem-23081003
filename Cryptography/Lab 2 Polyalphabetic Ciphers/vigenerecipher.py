@@ -52,7 +52,7 @@ lowerCase = [chr(i) for i in range(97, 123)]
 
 # User Input
 message = input('Enter your Message: ')
-key = 'mykey'
+key = 'messi'
 
 # Encrypting Message
 cipherText = encryptMessage(message, key)

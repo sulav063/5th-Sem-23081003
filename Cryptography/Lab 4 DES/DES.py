@@ -99,6 +99,6 @@ def encrypt_message(message):
     return ''.join(map(str, [bit for block in encrypted_blocks for bit in block]))
 
 if __name__ == '__main__':
-    message = "Hi"
+    message = "monarchy"
     encrypted_message = encrypt_message(message)
     print(f"Encrypted message: {encrypted_message}")

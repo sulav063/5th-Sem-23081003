@@ -57,8 +57,10 @@ def hill_decrypt(ciphertext, key):
 
 # Example usage
 if __name__ == "__main__":
-    key_matrix = np.array([[6, 24, 1], [13, 16, 10], [20, 17, 15]])  # Example 3x3 matrix key
-    plaintext = "NEVERSETTLEONEPLUS"
+    #key_matrix = np.array([[6, 24, 1], [13, 16, 10], [20, 17, 15]])  # Example 3x3 matrix key
+    key_matrix = np.array([[3,3], [2,5]])  # Example 3x3 matrix key
+    #plaintext = "NEVERSETTLEONEPLUS"
+    plaintext = "HELP"
 
     encrypted = hill_encrypt(plaintext, key_matrix)
     decrypted = hill_decrypt(encrypted, key_matrix)

@@ -28,4 +28,4 @@ def encryptMessage(message, key):
 
     return cipherText
 
-print(encryptMessage('asiancollege', 4))  
+print(encryptMessage('lost in paradise', 4))  

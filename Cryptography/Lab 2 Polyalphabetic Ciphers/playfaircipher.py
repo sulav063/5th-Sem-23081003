@@ -103,6 +103,7 @@ def generateMatrix(key):
 letters = []
 for i in range(65, 91):
     letters.append(chr(i))
-message = "MESSI"
-key = "GOAT"
+message = "HIDE THE GOLD"
+key = "MONARCHY"
+
 print(encryptMessage(message.upper(), key.upper()))

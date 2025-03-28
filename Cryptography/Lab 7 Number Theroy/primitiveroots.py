@@ -12,7 +12,7 @@ def primitive_roots(p):
     return roots
 
 def main():
-    p=11
+    p=17
     roots=primitive_roots(p)
     print("Primitive Roots of",p,"are",roots)
 

@@ -22,8 +22,8 @@ def etf(m):
     return prdt
 
 def main():
-    a = 5
-    m = 12
+    a = 3
+    m = 10
     etf_value = etf(m) 
     print("O(m) =", etf_value)
 

@@ -26,8 +26,8 @@ def main():
     
     print("Alice's shared key:", Ska)
     print("Bob's shared key:", Skb)
-    print("Public key of Alice:", Ya)  # Fixed typo
-    print("Public key of Bob:", Yb)  # Fixed typo
+    print("Public key of Alice:", Ya) 
+    print("Public key of Bob:", Yb)
 
 if __name__ == "__main__":
     main()

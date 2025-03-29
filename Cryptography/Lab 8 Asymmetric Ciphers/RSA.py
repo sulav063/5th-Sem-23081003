@@ -22,7 +22,7 @@ def generate_keys():
         if isprime(p):
             break
     while True:
-        q = random.randint(100, 500)
+        q = random.randint(100, 500) 
         if isprime(q) and q != p:
             break
 

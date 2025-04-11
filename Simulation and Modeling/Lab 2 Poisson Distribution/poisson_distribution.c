@@ -3,24 +3,44 @@
 //Write a C program to generate Poisson distribution for x = 0,1,2, …. 15.
 #include <stdio.h>
 #include <math.h>
-#include <stdlib.h>
-double poisson(int x, double lambda) {
-    return exp(-lambda) * pow(lambda, x) / tgamma(x + 1);
+
+// Function to calculate factorial manually
+long double factorial(int n) {
+    long double fact = 1.0;
+    int i;  // Declare loop variable outside the loop
+    for (i = 2; i <= n; i++) {
+        fact *= i;
+    }
+    return fact;
 }
+
+// Poisson distribution function
+double poisson(int x, double lambda) {
+    return (exp(-lambda) * pow(lambda, x)) / factorial(x);
+}
+
 int main() {
-    double lambda;   
+    float lambda;  // Use float for compatibility
+    int x;  // Declare loop variable here
+
     // Prompt user for input
     printf("Enter the average arrival rate (lambda): ");
-    if (scanf("%lf", &lambda) != 1 || lambda <= 0) {
+    if (scanf("%f", &lambda) != 1 || lambda <= 0) {  
         printf("Invalid input. Lambda must be a positive number.\n");
         return 1;
     }
-    printf("\nPoisson Distribution for x = 0 to 15:\n", lambda);
+
+    // Display results
+    printf("\nPoisson Distribution for x = 0 to 15 (lambda = %.2f):\n", lambda);
     printf("-------------------------------------------------\n");
-    for (int x = 0; x <= 15; x++) {
+
+    for (x = 0; x <= 15; x++) {  // Declare 'x' outside the loop
         double probability = poisson(x, lambda);
         printf("P(X = %2d) = %.6f\n", x, probability);
     }
+
     return 0;
 }
+
+
 
